@@ -8,18 +8,19 @@
 # # 기훈이의 방 바닥을 장식하는데 필요한 나무 판자의 개수를 출력하는 프로그램을 작성하시오.
 
 # 첫째 줄에 방 바닥의 세로 크기N과 가로 크기 M이 주어진다. 둘째 줄부터 N개의 줄에 M개의 문자가 주어진다. 이것은 바닥 장식 모양이고, '-‘와 ’|‘로만 이루어져 있다. N과 M은 50 이하인 자연수이다.
-graph = []
+
 cnt = 0
 
 n, m = map(int, input().split())
 
-for _ in range(n):
+graph = []
+for i in range(n):
     graph.append(list(input()))
 
 for i in range(n):
     f = ''
     for j in range(m):
-        if graph[i][j] == '-':
+        if graph[i][j] == '-':  #-
             if graph[i][j] != f:
                 cnt += 1
         f = graph[i][j]
@@ -27,9 +28,10 @@ for i in range(n):
 for i in range(m):
     f = ''
     for j in range(n):
-        if graph[i][j] == '|':
-            if graph[i][j] != f:
+        if graph[j][i] == '|': #|
+            if graph[j][i] != f:
                 cnt += 1
-        f = graph[i][j]
+        f = graph[j][i]
     
 print(cnt)
+
