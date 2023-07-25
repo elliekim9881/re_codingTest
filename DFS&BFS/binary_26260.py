@@ -32,6 +32,7 @@ X = int(input())
 A[A.index(-1)] = X
 A.sort()
 
+
 def postorder(node, a):
     if not a:
         print(A[node], end=' ')
@@ -41,3 +42,5 @@ def postorder(node, a):
     print(A[node], end=' ')
 
 postorder(N//2, (N+1)//4)
+
+

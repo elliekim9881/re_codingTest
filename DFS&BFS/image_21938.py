@@ -9,6 +9,9 @@
 # 마지막 줄에는 경계값 T가 주어진다.
 # 화면의 세로 길이와 가로 길이를 입력받는다.
 # from collections import deque
+import sys
+sys.setrecursionlimit(400000)
+
 N, M = map(int, input().split())
 
 graph = []
@@ -24,8 +27,9 @@ for _ in range(N):
 
 T = int(input())
 
+
 def dfs(row, col, T):
-    global count
+    global cnt
     if row >= N or row < 0 or col >= M or col < 0:
         return 0
     elif graph[row][col] < T:
@@ -41,9 +45,8 @@ def dfs(row, col, T):
 
 for row in range(N):
     for col in range(M):
-        if dfs(row, col, T) >= T:
+        if graph[row][col] != -1:
             cnt += dfs(row, col, T)
 
 print(cnt)
 
-#runtime error?
