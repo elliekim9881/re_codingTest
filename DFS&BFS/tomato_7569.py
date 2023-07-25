@@ -97,3 +97,4 @@ for i in tomato:
             day = max(day, k) # 최대일수
 
 print(day - 1)
+
